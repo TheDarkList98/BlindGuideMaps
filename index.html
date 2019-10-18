@@ -242,19 +242,10 @@ p {
 	height: 100%;
 }
 
-.placeBox .imgBx #rightpanel {
-		height: 350px;
-		overflow: auto;
-		z-index: 9999999;
-}
-
-
-.placeBox .imgBx #direcciones2 {
-	position: relative;
-	top: 100
-	
-}
-	
+	.placeBox .imgBx #rightpanel {
+		height: 300px;
+		overflow: scroll;
+	}
 
 
 
@@ -429,7 +420,11 @@ footer {
 	
 	
 	
-
+ #nose #distanciaytiempo {
+      font-size:22px;
+      color:white;
+      display:non;
+    }
     
     #solodistancia {
       font-size:22px;
@@ -442,7 +437,14 @@ footer {
       display:non;
     }
     
+ #demotext {
+color: white;
+text-shadow: 0 0 5px #FFF, 0 0 1px #FFF, 0 0 5px #FFF, 0 0 20px #4C6D29, 0 0 30px #A2B8E1, 0 0 40px #A2B8E1, 0 0 25px #A2B8E1, 0 0 75px #A2B8E1;
+color: #6F9F3B;
+font-size:38px;
 
+}
+  
   #rightpanel {
     background:white;
         font-family: 'Roboto','sans-serif';
@@ -476,9 +478,11 @@ footer {
       }
       #direcciones {
         color:white;
+        display:non;
       }
        #direcciones2 {
-        color:white !important;
+        color:white;
+        display:non;
       }
       
       #total {
@@ -492,7 +496,7 @@ footer {
 	
 	
 </head>  
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body data-spy="scroll" data-target=".navbar" data-offset="100">
 
 
 
@@ -508,13 +512,7 @@ footer {
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-lg-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#mapa">Mapa <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#indicaciones">Indicaciones</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#prototipo">Prototipo</a>
+        <a class="nav-link" href="#home">Mapa <span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>
@@ -522,7 +520,7 @@ footer {
   
 </nav>
 </header>
-<div class="jumbotron jumbotron-fluid height100p banner" id="mapa">
+<div class="jumbotron jumbotron-fluid height100p banner" id="home">
   <div class="container h100">
    <div class="contentBox h100">
    	<div>
@@ -537,21 +535,20 @@ footer {
 
 
 
-<section class="sec0" id="indicaciones">
+<section class="sec0" id="historia">
 	<div class="container">
 		<div class="row">
 			<div class="offset-sm-2 col-sm-8">
 				<div class="headerText text-center">
-				    <h1>Indicaciones para llegar a su destino</h1>
+					<div class="container mt-5"><p id="direcciones"></p></div>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="placeBox" data-aos="fade-up" data-aos-delay="0"  data-aos-duration="1000">
-					<div class="imgBx text-center">
-				        <div class="container mt-5"><p id="direcciones"></p></div>
-					    <p style="display: none;"><span id="total"></span></p>
+					<div class="imgBx">
+						 <p><span id="total"></span></p>
 					</div>
 					<div class="content">
 						<h3>Direcciones 1<br><span></span></h3>
@@ -560,7 +557,7 @@ footer {
 			</div>
 			<div class="col-sm-4">
 				<div class="placeBox" data-aos="fade-up" data-aos-delay="500"  data-aos-duration="1000">
-					<div class="imgBx text-center">
+					<div class="imgBx">
 						<div class="container"><p id="direcciones2"></p></div>
 					</div>
 					<div class="content">
@@ -574,19 +571,19 @@ footer {
 				        <div class="container"><p id="output"></p></div>
 					</div>
 					<div class="content">
-						<h3>Direccion, Distancia y Tiempo estimado<br><span></span></h3>
+						<h3>ouput<br><span></span></h3>
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-4">
 				<div class="placeBox" data-aos="fade-up" data-aos-delay="1000"  data-aos-duration="1000">
 					<div class="imgBx text-center">
-			             
-				    </div>
-					<div class="content">
-						<h3>otras<br><span></span></h3>
+				       <div class="container" id="nose">
 					</div>
-			    </div>
+					<div class="content">
+						<h3>Nose<br><span></span></h3>
+					</div>
+				</div>
 			</div>
 			<div class="col-sm-4">
 				<div class="placeBox" data-aos="fade-up" data-aos-delay="1000"  data-aos-duration="1000">
@@ -594,7 +591,7 @@ footer {
 				        <p id="distanciaytiempo"></p>
 					</div>
 					<div class="content">
-						<h3>Distancia y tiempo<br><span></span></h3>
+						<h3>texto<br><span></span></h3>
 					</div>
 				</div>
 			</div>
@@ -604,24 +601,25 @@ footer {
 				        <p> <span id="rightpanel"></span></p>
 					</div>
 					<div class="content">
-						<h3>Indicaciones visuales<br><span></span></h3>
+						<h3>RightPanel<br><span></span></h3>
 					</div>
 				</div>
 			</div>
-		    </div>
-	    </div>
+		</div>
+	</div>
+	</div>
 </section>
 
 
 
 
-<section class="sec1" id="prototipo">
+<section class="sec1" id="explore">
 	<div class="container">
 		<div class="row">
 			<div class="offset-sm-2 col-sm-8">
 				<div class="headerText text-center">
-					<h2 data-aos="fade-up" data-aos-delay="0"  data-aos-duration="1000">Prototipo</h2>
-					<p data-aos="fade-up" data-aos-delay="0"  data-aos-duration="1000">Este prototipo cumple la funcion de un perro guia, el cual le indicara si se encuentra algun objeto en su camino para asi guiarlo por el camino mas seguro</p>
+					<h2 data-aos="fade-up" data-aos-delay="0"  data-aos-duration="1000">Distintas Especialidades</h2>
+					<p data-aos="fade-up" data-aos-delay="0"  data-aos-duration="1000">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil pariatur hic! Ipsam sequi facilis assumenda fugit, atque fuga quaerat aspernatur quisquam quidem repellendus dignissimos, laborum, esse placeat blanditiis iure?</p>
 				</div>
 			</div>
 		</div>
@@ -632,7 +630,7 @@ footer {
 						<img src="img/turismo2k19.jpg" class="img-fluid" alt="">
 					</div>
 					<div class="content">
-						<h3>Primer prototipo<br><span></span></h3>
+						<h3>Turismo<br><span>2018</span></h3>
 					</div>
 				</div>
 			</div>
@@ -642,7 +640,7 @@ footer {
 						<img src="img/info1.jpg" class="img-fluid" alt="">
 					</div>
 					<div class="content">
-						<h3>Segundo Prototipo<br><span></span></h3>
+						<h3>Informatica en Redes<br><span>2018</span></h3>
 					</div>
 				</div>
 			</div>
@@ -652,7 +650,7 @@ footer {
 						<img src="img/ayb3.jpg" class="img-fluid" alt="">
 					</div>
 					<div class="content">
-						<h3>Tercer prototipo<br><span></span></h3>
+						<h3>Alimentos y bebidas<br><span>2018</span></h3>
 					</div>
 				</div>
 			</div>
@@ -662,7 +660,7 @@ footer {
 						<img src="img/secre1.jpg" class="img-fluid" alt="">
 					</div>
 					<div class="content">
-						<h3>Deteccion de objetos<br><span></span></h3>
+						<h3>Secretariado<br><span>2019</span></h3>
 					</div>
 				</div>
 			</div>
@@ -672,7 +670,7 @@ footer {
 						<img src="img/agro1.jpg" class="img-fluid" alt="">
 					</div>
 					<div class="content">
-						<h3>Emite sonido de advertencia<br><span></span></h3>
+						<h3>AgroIndustria<br><span>2018</span></h3>
 					</div>
 				</div>
 			</div>
@@ -682,7 +680,7 @@ footer {
 						<img src="img/robotica1.png" class="img-fluid" alt="no hay no existe XD">
 					</div>
 					<div class="content">
-						<h3>Recargable<br><span></span></h3>
+						<h3>Robotica<br><span>2019</span></h3>
 					</div>
 				</div>
 			</div>
@@ -1082,7 +1080,7 @@ footer {
     function displayMap(directionsService, directionsDisplay) {
       var posActual = new google.maps.LatLng(currentPos);
       directionsService.route({
-        origin: PuntodeOrigen,
+        origin: currentPos,
         destination: Destino,
         travelMode: 'WALKING'
       }, function(response, status) {
@@ -1116,7 +1114,6 @@ footer {
         total = total / 1000;
         document.getElementById('total').innerHTML = total + ' km';
       }
-
     window.onload = calcRuta;
   </script>
 
@@ -1140,4 +1137,3 @@ footer {
 </body>
 
 </html>
-
