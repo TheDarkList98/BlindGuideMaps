@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>BlindGuideMaps</title>
+	
+	<link rel="shortcut icon" href="https://i.ibb.co/HXGvjpG/logota.png">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+
+	<script src="js/queryloader2.min.js" type="text/javascript"></script>
+	
+	
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+<style>
+	
+	
+	
+	
+	
+	
+	@import url('https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap');
+
+* {
+	outline: none !important;
+	scroll-behavior: smooth;
+}
+	
+	
+	#map {
+      height: 70vh;
+      width: 100vw;
+      z-index:9999;
+	  opacity: 0.8;
+    }
+	
+	.navbar-collapse.show {
+		background: rgba(0,0,0,.4);
+	}
+
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom:0 !important; 
+    background-color: #e9ecef;
+    border-radius: .3rem;
+}
+
+.colores:before {
+	content: '';
+	color: #fff !important;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+header {
+	position: relative;
+	z-index: 10000000;
+}
+
+p {
+	font-size: 1.15rem;
+}
+
+.navbar {
+	background: transparent !important;
+	transition: 0.5s;
+}
+
+.navbar.scrolled {
+	background: #000 !important;
+	transition: 0.5s;
+}
+
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: #000 !important;
+	background: #fff !important;
+}
+
+
+
+.navbar-light .navbar-nav .active>.nav-link {
+	color: #000;
+}
+
+.navbar-light .navbar-nav .active>.nav-link:hover {
+	color: #000 !important;
+}
+
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    background: #fff !important;
+	color: #000 !important;
+	
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus{
+    color: #000;
+}
+
+
+
+.navbar-light .navbar-brand,.navbar-light .navbar-brand:hover,.navbar-light .navbar-brand:focus,.navbar-light .navbar-brand:visited 
+{
+	color: rgba(255,255,255,1) !important;
+	font-size: 2rem !important;
+	font-weight: 600 !important;
+}
+
+
+.banner {
+	position: relative;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	background: url(https://backgroundcheckall.com/wp-content/uploads/2017/12/blurred-city-background.png) no-repeat;
+	background-size:cover;
+	margin-bottom: 0;
+	
+}
+
+.banner:before,.sec2:before,.contact:before,.sec1:before {
+	content: '';
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 400px;
+	background: linear-gradient(#000, transparent);
+	pointer-events: none;
+	margin-bottom: 0;
+}
+
+.banner:after,.sec2:after,.contact:after,.sec1:after {
+	content: '';
+	position: absolute;
+	bottom:0;
+	left: 0;
+	width: 100%;
+	height: 400px;
+	background: linear-gradient(360deg, #000, transparent);
+	pointer-events: none;
+	margin-bottom: 0;
+}
+
+
+.height100p {
+	height: 100vh;
+}
+
+.height {
+	height: 100%;
+}
+
+
+.contentBox {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	z-index: 10;
+	top: 140px;
+}
+
+.contentBox h1 {
+	font-weight: 800;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 5rem;
+}
+
+.contentBox p {
+	color: #fff;
+	font-size: 1.3rem;
+	font-weight: 600;
+}
+
+.sec0 {
+
+	padding: 100px 0;
+	background: #000;
+}	
+
+
+.sec1 {
+	position: relative;
+	padding: 100px 0;
+	background: url(http://www.hdfondos.eu/preview/get_photo/531879/1920/1080)no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.headerText {
+	color: #fff;
+	font-weight: 400;
+}
+
+
+.headerText h2 {
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+}
+
+.placeBox {
+	position: relative;
+	max-width: 300px;
+	height: 400px;
+	margin: 0 auto;
+	background: #000;
+	margin-top: 30px;
+}
+
+
+.placeBox .imgBx {
+	width: 100%;
+	height: 100%;
+}
+
+.placeBox .imgBx #rightpanel {
+		height: 350px;
+		overflow: auto;
+		z-index: 9999999;
+}
+
+
+.placeBox .imgBx #direcciones2 {
+	position: relative;
+	top: 100
+	
+}
+	
+
+
+
+.placeBox .imgBx img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+	
+.placeBox .imgBx li {
+	color: white;
+	position: relative;
+	top: 50px;
+	list-style:circle;
+	text-align: center;
+}
+	
+.placeBox .imgBx p {
+	color: white;
+	
+}
+	
+
+.placeBox .imgBx h3 {
+	color: white;
+	text-align: center;
+	position: relative;
+	top: 50px;
+	
+}
+
+.placeBox .imgBx #carouselExampleControls {
+	position: relative;
+	top: 60px;
+}
+
+
+	
+.placeBox .content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: baseline;
+	align-items: flex-end;
+}
+
+.placeBox .content h3 {
+	position: relative;
+	margin: 0;
+	padding: 10px;
+	background: rgba(0,0,0,.95);
+	color: #fff;
+	font-size: 20px;
+	font-weight: 600;
+	width: 100%;
+	text-align: center;
+}
+
+.placeBox .content h3 span {
+	font-size: 16px;
+	font-weight: 500;
+}
+	
+	
+footer {
+	background: #000;
+	padding: 50px 0 0;
+}
+	
+
+.sci {
+	margin-right: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.sci li {
+	list-style: none;
+	margin: 0 20px;
+}
+
+.sci li a {
+	color: #777;
+	font-size: 2em;
+	transition: 0.5s;
+}
+
+.sci li a:hover {
+	color: #fff;
+}
+
+.cpryt {
+	margin-top: 20px;
+	text-align: center;
+	color: #777;
+}
+
+
+
+.cpryt a,.cpryt a:hover {
+	
+	color: #fff;
+}
+
+
+
+@media (min-width: 992px) {
+	.navbar-expand-lg .navbar-nav .nav-link {
+		padding-right: 1rem;
+		padding-left: 1rem;
+	}
+}
+
+@media (max-width: 992px) {
+	.navbar-light .navbar-toggler {
+		background: #fff;
+		border-radius: 0;
+	}
+	
+	.banner {
+		min-height: 100vh;
+		padding: 100px 0;
+	}
+	
+	.contentBox h1, .sec2 h2 {
+		font-size: 2rem;
+	}
+
+	.navbar-expand-lg .navbar-nav .nav-link {
+		padding-right: 1rem;
+		padding-left: 1rem;
+	}
+	
+	.sec0 {
+		padding: 20px 0;
+	}
+	
+	.sec1 {
+		padding: 20px 0;
+		background-size: cover;
+	}
+
+	
+	.contentBox.h100 {
+		position: relative;
+		top: -10px;
+	}
+	
+	.navbar-light .navbar-brand, .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:visited {
+    color: rgba(255,255,255,1) !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+                          }
+	
+	.mr-3, .mx-3 {
+   height: 40px !important;
+    }
+}
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+    #solodistancia {
+      font-size:22px;
+      color:yellow;
+      display:non;
+    }
+
+    #output {
+      color:white;
+      display:non;
+    }
+    
+
+  #rightpanel {
+    background:white;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+        display:non;
+      }
+
+      #rightpanel select, #rightpanel input {
+        font-size: 15px;
+        
+      }
+
+      #rightpanel select {
+        width: 100%;
+      }
+
+      #rightpanel i {
+        font-size: 12px;
+       
+      }
+      #rightpanel {
+        float: right;
+        width: 100%;
+        height: 100%;
+      }
+
+      .panel {
+        height: 100%;
+        overflow: auto;
+      }
+      #direcciones {
+        color:white;
+      }
+       #direcciones2 {
+        color:white !important;
+      }
+      
+      #total {
+        display: non;
+      }
+	  
+	
+	
+</style>
+	
+	
+	
+</head>  
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+
+
+<header>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+ <div class="container">
+ 	
+ 	<a class="navbar-brand" href="#"><img class="mr-3" src="https://i.ibb.co/HXGvjpG/logota.png" height="45" alt="">BlindGuideMap</a>
+  <button id="colapsador" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-lg-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#mapa">Mapa <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#indicaciones">Indicaciones</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#prototipo">Prototipo</a>
+      </li>
+    </ul>
+  </div>
+ </div>
+  
+</nav>
+</header>
+<div class="jumbotron jumbotron-fluid height100p banner" id="mapa">
+  <div class="container h100">
+   <div class="contentBox h100">
+   	<div>
+   		<div id="map" class="container-fluid" data-aos="fade-up" data-aos-delay="0"  data-aos-duration="1000"></div>
+   		<p data-aos="fade-up" data-aos-delay="500"  data-aos-duration="1000">Nuestro compromiso es llevarlo a su destino de manera segura</p>
+   	</div>
+   </div>
+  </div>
+</div>
+
+
+
+
+
+<section class="sec0" id="indicaciones">
+	<div class="container">
+		<div class="row">
+			<div class="offset-sm-2 col-sm-8">
+				<div class="headerText text-center">
+				    <h1>Indicaciones para llegar a su destino</h1>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="placeBox" data-aos="fade-up" data-aos-delay="0"  data-aos-duration="1000">
+					<div class="imgBx text-center">
+				        <div class="container mt-5"><p id="direcciones"></p></div>
+					    <p style="display: none;"><span id="total"></span></p>
+					</div>
+					<div class="content">
+						<h3>Direcciones 1<br><span></span></h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="placeBox" data-aos="fade-up" data-aos-delay="500"  data-aos-duration="1000">
+					<div class="imgBx text-center">
+						<div class="container"><p id="direcciones2"></p></div>
+					</div>
+					<div class="content">
+						<h3>Direcciones 2<br><span></span></h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="placeBox" data-aos="fade-up" data-aos-delay="1000"  data-aos-duration="1000">
+					<div class="imgBx text-center">
+				        <div class="container"><p id="output"></p></div>
+					</div>
+					<div class="content">
+						<h3>Direccion, Distancia y Tiempo estimado<br><span></span></h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="placeBox" data-aos="fade-up" data-aos-delay="1000"  data-aos-duration="1000">
+					<div class="imgBx text-center">
+			             
+				    </div>
+					<div class="content">
+						<h3>otras<br><span></span></h3>
+					</div>
+			    </div>
+			</div>
+			<div class="col-sm-4">
+				<div class="placeBox" data-aos="fade-up" data-aos-delay="1000"  data-aos-duration="1000">
+					<div class="imgBx text-center">
+				        <p id="distanciaytiempo"></p>
+					</div>
+					<div class="content">
+						<h3>Distancia y tiempo<br><span></span></h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="placeBox" data-aos="fade-up" data-aos-delay="1000"  data-aos-duration="1000">
+					<div class="imgBx text-center">
+				        <p> <span id="rightpanel"></span></p>
+					</div>
+					<div class="content">
+						<h3>Indicaciones visuales<br><span></span></h3>
+					</div>
+				</div>
+			</div>
+		    </div>
+	    </div>
+</section>
+
+
+
+
+<section class="sec1" id="prototipo">
+	<div class="container">
+		<div class="row">
+			<div class="offset-sm-2 col-sm-8">
+				<div class="headerText text-center">
+					<h2 data-aos="fade-up" data-aos-delay="0"  data-aos-duration="1000">Prototipo</h2>
+					<p data-aos="fade-up" data-aos-delay="0"  data-aos-duration="1000">Este prototipo cumple la funcion de un perro guia, el cual le indicara si se encuentra algun objeto en su camino para asi guiarlo por el camino mas seguro</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="placeBox" data-aos="fade-up" data-aos-delay="0"  data-aos-duration="1000">
+					<div class="imgBx">
+						<img src="img/turismo2k19.jpg" class="img-fluid" alt="">
+					</div>
+					<div class="content">
+						<h3>Primer prototipo<br><span></span></h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="placeBox" data-aos="fade-up" data-aos-delay="500"  data-aos-duration="1000">
+					<div class="imgBx">
+						<img src="img/info1.jpg" class="img-fluid" alt="">
+					</div>
+					<div class="content">
+						<h3>Segundo Prototipo<br><span></span></h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="placeBox" data-aos="fade-up" data-aos-delay="1000"  data-aos-duration="1000">
+					<div class="imgBx">
+						<img src="img/ayb3.jpg" class="img-fluid" alt="">
+					</div>
+					<div class="content">
+						<h3>Tercer prototipo<br><span></span></h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4" style="z-index:12;">
+				<div class="placeBox" data-aos="fade-up" data-aos-delay="0"  data-aos-duration="1000">
+					<div class="imgBx">
+						<img src="img/secre1.jpg" class="img-fluid" alt="">
+					</div>
+					<div class="content">
+						<h3>Deteccion de objetos<br><span></span></h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4" style="z-index:12;">
+				<div class="placeBox" data-aos="fade-up" data-aos-delay="500"  data-aos-duration="1000">
+					<div class="imgBx">
+						<img src="img/agro1.jpg" class="img-fluid" alt="">
+					</div>
+					<div class="content">
+						<h3>Emite sonido de advertencia<br><span></span></h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4" style="z-index:12;">
+				<div class="placeBox" data-aos="fade-up" data-aos-delay="1000"  data-aos-duration="1000">
+					<div class="imgBx">
+						<img src="img/robotica1.png" class="img-fluid" alt="no hay no existe XD">
+					</div>
+					<div class="content">
+						<h3>Recargable<br><span></span></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<ul class="sci">
+					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+					<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+				</ul>
+				<p class="cpryt">@ Copyright 2019 por <a href="">Wilder Hernandez Guillen</a></p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+
+
+<script>
+    var iconomarkador = "https://icon-icons.com/icons2/1521/PNG/48/mapmarkerhd_106079.png";
+    var iconomarkador2 = "https://icon-icons.com/icons2/165/PNG/48/mapmarker_marker_inside_pink_23008.png";
+    var MiUbicacion = {
+      lat: 10.675551,
+      lng: -85.195732
+    };
+    
+    var x;
+    var y;
+    var f;
+    var dondesedirige;
+    var origin1;
+    var destinationB;
+    var directionsService;
+    var directionsDisplay;
+    var StyleJSON = [{
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#242f3e"
+      }]
+    }, {
+      "elementType": "labels.text.fill",
+      "stylers": [{
+        "color": "#746855"
+      }]
+    }, {
+      "elementType": "labels.text.stroke",
+      "stylers": [{
+        "color": "#242f3e"
+      }]
+    }, {
+      "featureType": "administrative.locality",
+      "elementType": "labels.text.fill",
+      "stylers": [{
+        "color": "#d59563"
+      }]
+    }, {
+      "featureType": "poi",
+      "elementType": "labels.text.fill",
+      "stylers": [{
+        "color": "#d59563"
+      }]
+    }, {
+      "featureType": "poi.park",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#263c3f"
+      }]
+    }, {
+      "featureType": "poi.park",
+      "elementType": "labels.text.fill",
+      "stylers": [{
+        "color": "#6b9a76"
+      }]
+    }, {
+      "featureType": "road",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#38414e"
+      }]
+    }, {
+      "featureType": "road",
+      "elementType": "geometry.stroke",
+      "stylers": [{
+        "color": "#212a37"
+      }]
+    }, {
+      "featureType": "road",
+      "elementType": "labels.text.fill",
+      "stylers": [{
+        "color": "#9ca5b3"
+      }]
+    }, {
+      "featureType": "road.highway",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#746855"
+      }]
+    }, {
+      "featureType": "road.highway",
+      "elementType": "geometry.stroke",
+      "stylers": [{
+        "color": "#1f2835"
+      }]
+    }, {
+      "featureType": "road.highway",
+      "elementType": "labels.text.fill",
+      "stylers": [{
+        "color": "#f3d19c"
+      }]
+    }, {
+      "featureType": "transit",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#2f3948"
+      }]
+    }, {
+      "featureType": "transit.station",
+      "elementType": "labels.text.fill",
+      "stylers": [{
+        "color": "#d59563"
+      }]
+    }, {
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#17263c"
+      }]
+    }, {
+      "featureType": "water",
+      "elementType": "labels.text.fill",
+      "stylers": [{
+        "color": "#515c6d"
+      }]
+    }, {
+      "featureType": "water",
+      "elementType": "labels.text.stroke",
+      "stylers": [{
+        "color": "#17263c"
+      }]
+    }];
+    var currentPos;
+    var gMarker;
+    var marker = null;
+    var Zoom = 15;
+    var map;
+
+
+
+
+    function initMap() {
+
+
+      var MapOptions = {
+        styles: StyleJSON,
+        zoom: Zoom,
+        disableDefaultUI: true,
+        fullscreenControl: false,
+        scaleControl: true,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          position: google.maps.ControlPosition.TOP_LEFT,
+          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+          position: google.maps.ControlPosition.RIGHT_CENTER
+        }
+      };
+
+      map = new google.maps.Map(document.getElementById('map'), MapOptions);
+      directionsService = new google.maps.DirectionsService;
+      directionsDisplay = new google.maps.DirectionsRenderer({
+        map: map,
+        panel: document.getElementById('rightpanel')
+      });
+      
+      directionsDisplay.addListener('directions_changed', function() {
+          computeTotalDistance(directionsDisplay.getDirections());
+        });
+
+      var bounds = new google.maps.LatLngBounds;
+      var markersArray = [];
+
+      PuntodeOrigen = {
+        lat: 10.673654,
+        lng: -85.198519
+      };
+      Destino = 'unidada 22, Provincia de Guanacaste';
+
+
+      var destinationIcon = '';
+      var originIcon = '';
+
+
+      geocoder = new google.maps.Geocoder;
+
+      var service = new google.maps.DistanceMatrixService;
+      service.getDistanceMatrix({
+        origins: [PuntodeOrigen],
+        destinations: [Destino],
+        travelMode: 'WALKING',
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false
+      }, function(response, status) {
+        if (status !== 'OK') {
+          alert('Error was: ' + status);
+        } else {
+          var originList = response.originAddresses;
+          var destinationList = response.destinationAddresses;
+          var outputDiv = document.getElementById('output');
+          outputDiv.innerHTML = '';
+          deleteMarkers(markersArray);
+
+
+          var showGeocodedAddressOnMap = function(asDestination) {
+            var icon = asDestination ? destinationIcon : originIcon;
+            return function(results, status) {
+              if (status === 'OK') {
+                map.fitBounds(bounds.extend(results[0].geometry.location));
+                markersArray.push(new google.maps.Marke({
+                  map: map,
+                  position: results[0].geometry.location,
+                }));
+              } else {
+                alert('Geocode was not successful due to: ' + status);
+              }
+            };
+          };
+
+
+          for (var i = 0; i < originList.length; i++) {
+            var results = response.rows[i].elements;
+            geocoder.geocode({
+                'address': originList[i]
+              },
+              showGeocodedAddressOnMap(false));
+            for (var j = 0; j < results.length; j++) {
+              geocoder.geocode({
+                  'address': destinationList[j]
+                },
+                showGeocodedAddressOnMap(true));
+              outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j] +
+                ': ' + results[j].distance.text + ' in ' +
+                results[j].duration.text + '<br>';
+            }
+          }
+        }
+      });
+
+      function deleteMarkers(markersArray) {
+        for (var i = 0; i < markersArray.length; i++) {
+          markersArray[i].setMap(null);
+        }
+        markersArray = [];
+      };
+
+
+      function CenterControl(controlDiv, map) {
+
+        var controlUI = document.createElement('div');
+        controlUI.style.backgroundColor = '#fff';
+        controlUI.style.border = '2px solid #fff';
+        controlUI.style.borderRadius = '3px';
+        controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+        controlUI.style.cursor = 'pointer';
+        controlUI.style.margin = '10px';
+        controlUI.style.textAlign = 'center';
+        controlUI.title = 'Click para centrar el mapa';
+        controlDiv.appendChild(controlUI);
+
+
+        var controlText = document.createElement("div");
+        controlText.style.padding = "15px";
+        controlText.innerHTML = '<img style = "width:20px"  "height:15px" src="https://cdn.icon-icons.com/icons2/259/PNG/64/ic_my_location_128_28629.png">';
+        controlUI.appendChild(controlText);
+
+        controlUI.addEventListener("click",
+
+          function() {
+            map.setCenter(MiUbicacion);
+          });
+      };
+
+      var centerControlDiv = document.createElement("div");
+      var centerControl = new CenterControl(centerControlDiv, map);
+
+      centerControlDiv.index = 1;
+      map.controls[google.maps.ControlPosition.TOP_RIGHT].push(centerControlDiv);
+
+      if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(success, error, geoOpt);
+      } else {
+        alert('Error:tu navegador no soporta la geolocalizacion');
+      }
+
+
+
+      function success(position) {
+        currentPos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+
+
+        if (marker == null) {
+
+          marker = new google.maps.Marker({
+            position: currentPos,
+            map: map,
+            icon: iconomarkador,
+            draggable: true,
+            animation: google.maps.Animation.BOUNCE
+          });
+
+          marker.setMap(map);
+        } else {
+          marker.setPosition(currentPos);
+        }
+
+      };
+
+      function error(error) {
+        alert('El usuario no autorizo conocer su ubicacion!')
+      }
+      var geoOpt = {
+        enableHighAccuracy: true,
+        timeout: Infinity,
+        maximumAge: 3000
+      };
+
+      var trafico = true;
+
+      if (trafico == true) {
+        trafico = new google.maps.TrafficLayer();
+
+        trafico.setMap(map);
+      }
+
+      map.addListener('click', function(rta) {
+        addMarker(rta.latLng);
+      });
+
+
+      function addMarker(location) {
+        gMarker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+
+        geocoder;
+        geocoder.geocode({
+          'location': location
+        }, function(results, status) {
+          if (status === 'OK') {
+            if (results[1]) {
+              displayMap(directionsService, directionsDisplay);
+              gInfoWindow.setContent(content.content + results[0].formatted_address);
+            }
+          } else {
+            alert('Error: ' + status);
+          }
+        });
+
+        var gInfoWindow = new google.maps.InfoWindow(content);
+        gMarker.addListener('click', function() {
+          gInfoWindow.open(map, gMarker);
+         
+        });
+
+        gMarker.push(marker);
+      }
+
+    } 
+
+    function calcRuta() {
+      displayMap(directionsService, directionsDisplay);
+      
+      
+      myFunction;
+    };
+
+    function displayMap(directionsService, directionsDisplay) {
+      var posActual = new google.maps.LatLng(currentPos);
+      directionsService.route({
+        origin: PuntodeOrigen,
+        destination: Destino,
+        travelMode: 'WALKING'
+      }, function(response, status) {
+        if (status == 'OK') {
+          directionsDisplay.setDirections(response);
+         document.getElementById("direcciones").innerHTML = JSON.stringify(response.routes[0].legs[0].steps[0].instructions);
+          document.getElementById("direcciones2").innerHTML = JSON.stringify(response.routes[0].legs[0].steps[1].instructions);
+           y = document.getElementById("direcciones").innerHTML;
+           f = document.getElementById("direcciones2").innerHTML;
+          x = document.getElementById("output").innerHTML;
+
+          document.getElementById("distanciaytiempo").textContent = x+y+f;
+          window.AppInventor.setWebViewString('' + x+"direccion1$"+y+"direccion2%"+f);
+          gMarker.setMap(null);
+          marker.setMap(null);
+          dondesedirige.setMap(null);
+          origin1.setMap(null);
+          destinationB.setMap(null);
+        } else {
+          alert('Error: ' + status);
+        }
+      });
+    };
+
+ function computeTotalDistance(result) {
+        var total = 0;
+        var myroute = result.routes[0];
+        for (var i = 0; i < myroute.legs.length; i++) {
+          total += myroute.legs[i].distance.value;
+        }
+        total = total / 1000;
+        document.getElementById('total').innerHTML = total + ' km';
+      }
+
+    window.onload = calcRuta;
+  </script>
+
+
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD00h2Im75SLcn6Vunvx4V8DBJbKSceqaA&callback=initMap">
+  </script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+ 
+<script>
+    AOS.init();
+</script>
+
+
+ 
+
+</body>
+
+</html>
+
